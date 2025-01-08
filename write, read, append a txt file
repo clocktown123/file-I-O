@@ -1,0 +1,18 @@
+file = open('animals.txt', 'w')
+file.write("hello, this is a test file.\n")
+file.write("this is the second line.\n")
+file.close()
+
+file = open('animals.txt', 'r')
+content = file.read()
+print(content)
+file.close
+
+file = open('animals.txt', 'a')
+file.write("this is an appeneded line.\n")
+file.close()
+
+file = open('animals.txt', 'r')
+content = file.read()
+print(content)
+file.close()
