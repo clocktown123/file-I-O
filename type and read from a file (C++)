@@ -1,0 +1,58 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include <Windows.h>
+using namespace std;
+
+// FILE INPUT##############################################################################
+
+//int main() {
+//	srand(time(NULL)); //randomizes seed based on computers clock
+//
+//	int num;
+//	cout << "give me a number" << endl;
+//	cin >> num;
+//
+//
+//	ofstream outfile("SecretMessage.txt");
+//
+//	if (!outfile) {
+//		cout << "Error: could not create SecretMessage.txt" << endl;
+//		return 1;
+//	}
+//
+//	for (int i = 0; i <= num; i++) {
+//		int freq = rand() % 15 + 1;
+//		int dur = rand() % 10;
+//		outfile << freq << " " << dur << endl;
+//	}
+//
+//	cout << "secretMessage.txt has been created with " << num << " random notes." << endl;
+//	outfile.close();
+//
+//	return 0;
+
+
+//}
+
+// FILE OUTPUT############################################################################################
+
+int main() {
+	ifstream infile("SecretMessage.txt");
+
+	if (!infile) {
+		cout << "Error: Could no open SecretMessage.txt" << endl;
+		return 1;
+	}
+
+	int freq, dur;
+	while (infile >> freq >> dur) {
+		cout << "Playing: " << freq << " HZ for " << dur << " ms" << endl;
+		Beep(freq, dur);
+	}
+
+	infile.close();
+	return 0;
+
+}
